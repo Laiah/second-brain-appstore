@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schemas.runtipi.io/app-info.json",
+  "name": "Second Brain",
+  "id": "second-brain",
+  "available": true,
+  "short_desc": "Personnes, photos et notes au même endroit.",
+  "author": "Laiah",
+  "port": 8642,
+  "categories": ["utilities"],
+  "description": "L'OS de mon cerveau : personnes, photos (Immich), notes et bases (Obsidian), avec la personne comme point d'entrée.",
+  "tipi_version": 1,
+  "version": "local",
+  "source": "https://github.com/Laiah/second-brain-v2",
+  "exposable": false,
+  "dynamic_config": true,
+  "min_tipi_version": "4.5.0",
+  "supported_architectures": ["amd64", "arm64"],
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Mot de passe de l'interface",
+      "required": true,
+      "env_variable": "SECOND_BRAIN_PASSWORD",
+      "min": 8
+    },
+    {
+      "type": "random",
+      "label": "Secret du cookie de session",
+      "required": true,
+      "env_variable": "SECOND_BRAIN_SESSION_SECRET",
+      "min": 64,
+      "encoding": "hex"
+    },
+    {
+      "type": "text",
+      "label": "Source des données",
+      "required": true,
+      "env_variable": "SECOND_BRAIN_DATA_SOURCE",
+      "default": "live",
+      "options": [
+        { "label": "Mes données (live)", "value": "live" },
+        { "label": "Données d'exemple (mock)", "value": "mock" }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Vault Obsidian (chemin sur le serveur)",
+      "required": false,
+      "env_variable": "SECOND_BRAIN_VAULT",
+      "hint": "Monté en lecture seule. Vide : pas de notes.",
+      "placeholder": "/home/moi/Obsidian/Vault"
+    },
+    {
+      "type": "text",
+      "label": "Dossier des captures (chemin sur le serveur)",
+      "required": false,
+      "env_variable": "SECOND_BRAIN_CAPTURES",
+      "hint": "Le seul dossier du vault où l'application écrit. Il doit exister.",
+      "placeholder": "/home/moi/Obsidian/Vault/Captures"
+    },
+    {
+      "type": "text",
+      "label": "Adresse d'Immich",
+      "required": false,
+      "env_variable": "SECOND_BRAIN_IMMICH_URL",
+      "placeholder": "http://192.168.1.50:2283"
+    },
+    {
+      "type": "password",
+      "label": "Clé d'API Immich",
+      "required": false,
+      "env_variable": "SECOND_BRAIN_IMMICH_API_KEY"
+    },
+    {
+      "type": "text",
+      "label": "Client ID Trakt",
+      "required": false,
+      "env_variable": "SECOND_BRAIN_TRAKT_CLIENT_ID"
+    },
+    {
+      "type": "password",
+      "label": "Calendriers iCal du téléphone",
+      "required": false,
+      "env_variable": "SECOND_BRAIN_CALENDAR_ICS_URLS",
+      "hint": "Adresses secrètes séparées par une virgule."
+    }
+  ],
+  "created_at": 1793664000000,
+  "updated_at": 1793664000000
+}
