@@ -21,7 +21,8 @@
       "label": "Mot de passe de l'interface",
       "required": true,
       "env_variable": "SECOND_BRAIN_PASSWORD",
-      "min": 8
+      "min": 8,
+      "max": 256
     },
     {
       "type": "random",
@@ -69,7 +70,9 @@
       "type": "password",
       "label": "Clé d'API Immich",
       "required": false,
-      "env_variable": "SECOND_BRAIN_IMMICH_API_KEY"
+      "env_variable": "SECOND_BRAIN_IMMICH_API_KEY",
+      "min": 0,
+      "max": 256
     },
     {
       "type": "text",
@@ -82,6 +85,8 @@
       "label": "Calendriers iCal du téléphone",
       "required": false,
       "env_variable": "SECOND_BRAIN_CALENDAR_ICS_URLS",
+      "min": 0,
+      "max": 4000,
       "hint": "Adresses secrètes séparées par une virgule."
     }
   ],
